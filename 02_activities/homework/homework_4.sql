@@ -18,7 +18,7 @@ Edit the appropriate columns -- you're making two edits -- and the NULL rows wil
 All the other rows will remain the same.) */
 
 SELECT 
-coalesce(product_name,'') || ', ' || coalesce(product_size,'')|| ' (' || coalesce(product_qty_type,'unit') || ')'
+product_name || ', ' || coalesce(product_size,'')|| ' (' || coalesce(product_qty_type,'unit') || ')'
 FROM product
 
 
@@ -52,8 +52,7 @@ WHERE x.rank_visits=1
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
-SELECT DISTINCT customer_id
-,product_id
+SELECT *
 ,count(*)OVER(PARTITION BY customer_id,product_id) as [count_purchases]
 FROM customer_purchases
 
@@ -95,7 +94,7 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
 
-SELECT market_date, Sales, rn_max AS [row_number]
+SELECT market_date, Sales
 FROM
 (
     SELECT market_date,
@@ -108,7 +107,7 @@ WHERE x.rn_max = 1
 
 UNION
 
-SELECT market_date, Sales, rn_min AS [row_number]
+SELECT market_date, Sales
 FROM
 (
     SELECT market_date,
