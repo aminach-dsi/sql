@@ -17,6 +17,7 @@ Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
 ```
+Yes, There are privacy implications: Type 2 SCD store historical customer data, which increases privacy risks compared to Type 1 SCD, where data is simply overwritten. While Type 1 SCD may seem less risky, both types require secure storage practices to protect sensitive information.
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
@@ -25,6 +26,19 @@ Highlight at least two differences between it and your ERD. Would you change any
 ```
 Your answer...
 ```
+Difference 1:
+
+- The AdventureWorks Schema is well-organized, featuring clearly defined separate entities for customers, orders, products, and addresses, which enhances the overall readability and structure of the model. This organization allows for efficient navigation and understanding of relationships among entities, making it easier to manage and query data.
+
+- My model is relatively simplistic and may lack the level of organization found in more complex schemas like AdventureWorks. While it functions for basic operations, it may require more structure and normalization to enhance clarity, prevent redundancy, and facilitate better data management practices as the system scales.
+
+Difference 2:
+
+- The AdventureWorks Schema rigorously defines foreign key relationships, unique constraints, and primary keys across its tables, ensuring proper linkage between tables and preventing duplication of records.
+
+- My model does not emphasize foreign key constraints or unique identifiers, which could result in decreased readability, especially in larger models containing many tables.
+
+To improve my model, I should define foreign key and unique constraints to ensure data integrity and prevent duplicates. Normalize address data by separating components like city, state, and country into distinct tables. Improve documentation for clarity and implement consistent naming conventions.
 
 # Criteria
 
